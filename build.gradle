@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+}
+
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url "https://www.dcm4che.org/maven2/" }
+}
+
+ext {
+    dcm4cheVersion = '3.3.5'
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    implementation group: 'org.apache.commons', name: 'commons-collections4', version: '4.4'
+    implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.0.0'
+    compile("org.apache.logging.log4j:log4j-api:2.10.0")
+    compile("org.apache.logging.log4j:log4j-core:2.10.0")
+    compile("org.apache.logging.log4j:log4j-slf4j-impl:2.10.0")
+    compile("org.apache.logging.log4j:log4j-1.2-api:2.10.0")
+
+
+    compile(
+            "org.dcm4che:dcm4che-core:${dcm4cheVersion}",
+            "org.dcm4che:dcm4che-net:${dcm4cheVersion}",
+            "org.dcm4che.tool:dcm4che-tool-dcm2jpg:${dcm4cheVersion}",
+            "org.dcm4che.tool:dcm4che-tool-storescu:${dcm4cheVersion}"
+    )
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+compileJava.options.encoding = 'UTF-8'
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}

@@ -1,0 +1,36 @@
+### user template
+# IntelliJ project files
+target
+build
+*~
+*.log
+.classpath
+.project
+*.ipr
+*.iws
+*.iml
+*.xml
+.settings
+.git
+.svn
+*.class
+*.bak
+
+### Gradle template
+.gradle
+**/build/
+!src/**/build/
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache
+
+# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
+# gradle/wrapper/gradle-wrapper.properties
+
+/src/main/
